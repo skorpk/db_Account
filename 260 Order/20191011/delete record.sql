@@ -1,0 +1,7 @@
+USE AccountOMS
+GO
+SELECT * FROM dbo.t_260order_ONK WHERE rf_idRecordCasePatient IN(105232117,104694861)
+
+BEGIN TRANSACTION
+DELETE FROM dbo.t_260order_ONK WHERE  rf_idRecordCasePatient IN(105232117,104694861)
+commit

@@ -1,0 +1,9 @@
+USE AccountOMS
+GO
+SELECT l.CodeM, l.NAMES, 
+	COUNT(CASE WHEN C_POKL=4 THEN rf_idCase ELSE NULL END) AS Disp, 
+	COUNT(CASE WHEN C_POKL=5 THEN rf_idCase ELSE NULL END) AS Prof
+FROM dbo.t_Report1FFOMS r INNER JOIN dbo.vw_sprT001 l ON
+			r.AttachLPU=l.CodeM
+GROUP BY l.CodeM, l.NAMES
+ORDER BY l.CodeM

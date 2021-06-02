@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="AccountOMS">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="srvsql1-st2:VTFOMS\SKrainov">
+          <Created>2013-07-12T09:09:20.3400571+03:00</Created>
+          <Type>SQL</Type>
+          <Server>srvsql1-st2</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="srvsql2-st1:VTFOMS\SKrainov">
+          <Created>2012-06-15T13:09:07.2211384+03:00</Created>
+          <Type>SQL</Type>
+          <Server>srvsql2-st1</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="test-skrainov:VTFOMS\SKrainov">
+          <Created>2013-12-26T07:59:23.0459887+03:00</Created>
+          <Type>SQL</Type>
+          <Server>test-skrainov</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="tserver:VTFOMS\SKrainov">
+          <Created>2011-11-22T14:27:44.495083+03:00</Created>
+          <Type>SQL</Type>
+          <Server>tserver</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName />
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="Backup_Restore.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Backup_Restore.sql</FullPath>
+        </FileNode>
+        <FileNode Name="AccountOMS_DB_Create.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>AccountOMS_DB_Create.sql</FullPath>
+        </FileNode>
+        <FileNode Name="AccountOMSTable.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>AccountOMSTable.sql</FullPath>
+        </FileNode>
+        <FileNode Name="InsertCompletedCaseIntoMU.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>InsertCompletedCaseIntoMU.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DeleteFile.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DeleteFile.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Indexes.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Indexes.sql</FullPath>
+        </FileNode>
+        <FileNode Name="FileUser.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>FileUser.sql</FullPath>
+        </FileNode>
+        <FileNode Name="20121031Update.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>20121031Update.sql</FullPath>
+        </FileNode>
+        <FileNode Name="vw_Diagnosis.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>vw_Diagnosis.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_InsertAccountDataLPU2014 TEST.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_InsertAccountDataLPU2014 TEST.sql</FullPath>
+        </FileNode>
+        <FileNode Name="t_AdditionalAccounts.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>t_AdditionalAccounts.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_TestAccountDataLPU.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_TestAccountDataLPU.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_Report_DDS_7.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_Report_DDS_7.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_Report_DAP1_K.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_Report_DAP1_K.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_Report_DDS_3.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_Report_DDS_3.sql</FullPath>
+        </FileNode>
+        <FileNode Name="vw_ClinicalExaminationAdults.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>vw_ClinicalExaminationAdults.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_InsertCompletedCaseIntoMeduslugi.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_InsertCompletedCaseIntoMeduslugi.sql</FullPath>
+        </FileNode>
+        <FileNode Name="t_SystemError.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>t_SystemError.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_GetMeduslugiFromRegisterCaseDB.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_GetMeduslugiFromRegisterCaseDB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_ReportCompletedCaseAfter19.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_ReportCompletedCaseAfter19.sql</FullPath>
+        </FileNode>
+        <FileNode Name="vw_sprMuWithParamAccount.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>vw_sprMuWithParamAccount.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_SecurityService.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_SecurityService.sql</FullPath>
+        </FileNode>
+        <FileNode Name="view vw_sprAllError.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>view vw_sprAllError.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_IsCODEExists.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_IsCODEExists.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_ReportDDChild14.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_ReportDDChild14.sql</FullPath>
+        </FileNode>
+        <FileNode Name="vw_MUChild14D.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>vw_MUChild14D.sql</FullPath>
+        </FileNode>
+        <FileNode Name="create table t_Case_PID_ENP.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>create table t_Case_PID_ENP.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_InsertCase_PID_ENP.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>usp_InsertCase_PID_ENP.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_GetFileUnLoadKey_20120504.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_GetFileUnLoadKey_20120504.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_GetCaseFromRegisterCaseDB.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_GetCaseFromRegisterCaseDB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="vw_MeduslugiMes.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>vw_MeduslugiMes.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_ReportCompletedCase.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_ReportCompletedCase.sql</FullPath>
+        </FileNode>
+        <FileNode Name="computed column.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>computed column.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_GetFileUnLoad.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_GetFileUnLoad.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_GetListFilesUnLoad.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_GetListFilesUnLoad.sql</FullPath>
+        </FileNode>
+        <FileNode Name="fn_FullYear.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>fn_FullYear.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_DeleteFiles.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_DeleteFiles.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_GetFiles.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_GetFiles.sql</FullPath>
+        </FileNode>
+        <FileNode Name="t_FileExit.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>t_FileExit.sql</FullPath>
+        </FileNode>
+        <FileNode Name="delete table.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>delete table.sql</FullPath>
+        </FileNode>
+        <FileNode Name="add cascade delete.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>add cascade delete.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_ReportUnLoadAccountToSMO.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_ReportUnLoadAccountToSMO.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_ReportNotAcceptedAccount.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_ReportNotAcceptedAccount.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_ReportAcceptedAccount.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_ReportAcceptedAccount.sql</FullPath>
+        </FileNode>
+        <FileNode Name="fn_MonthName.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>fn_MonthName.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_InsertFileError.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_InsertFileError.sql</FullPath>
+        </FileNode>
+        <FileNode Name="data type.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>data type.sql</FullPath>
+        </FileNode>
+        <FileNode Name="fn_FinSanction_split.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>fn_FinSanction_split.sql</FullPath>
+        </FileNode>
+        <FileNode Name="fn_Diagnosis_split.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>fn_Diagnosis_split.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Views.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Views.sql</FullPath>
+        </FileNode>
+        <FileNode Name="fn_Split_NSCHET.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:test-skrainov:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>test-skrainov</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>fn_Split_NSCHET.sql</FullPath>
+        </FileNode>
+        <FileNode Name="CheckAccount(functions).sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>CheckAccount(functions).sql</FullPath>
+        </FileNode>
+        <FileNode Name="Error Table.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Error Table.sql</FullPath>
+        </FileNode>
+        <FileNode Name="fn_GetMeduslugiFromRegisterCaseDB.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>fn_GetMeduslugiFromRegisterCaseDB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_InsertAccountDataLPU_v1.2.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:srvsql2-st1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>srvsql2-st1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_InsertAccountDataLPU_v1.2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="usp_GetsprT001_and_usp_IsFileNameExists.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:tserver:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>tserver</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>usp_GetsprT001_and_usp_IsFileNameExists.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+  <SccProjectName>$/Account/Sql scripts/AccountOMS/AccountOMS</SccProjectName>
+  <SccAuxPath />
+  <SccLocalPath>.</SccLocalPath>
+  <SccProvider>MSSCCI:Team Foundation Server MSSCCI Provider</SccProvider>
+</SqlWorkbenchSqlProject>

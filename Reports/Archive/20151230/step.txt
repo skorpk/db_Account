@@ -1,0 +1,14 @@
+1.	DS
+2.	Sur
+3.	DS+Sur
+4.	DS+Sur+Age
+7.	DS+Age
+8.	DS+Sex
+9.	DS+Sur+los
+10. Sur+Age
+11. Ds+Ds2 ?
+12. Sur+LSex
+13. Sur+los
+14. DS2+Sur+Age
+	
+	Все остальные случаи

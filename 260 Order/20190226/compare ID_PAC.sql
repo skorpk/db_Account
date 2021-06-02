@@ -1,0 +1,43 @@
+USE RegisterCases
+GO
+declare @p1 XML,
+		@idoc INT,
+		@p2 XML,
+		@idPac int
+
+SELECT	@p1=HRM.ZL_LIST				
+FROM	OPENROWSET(BULK 'c:\Test\CT34_19022.xml',SINGLE_BLOB) HRM (ZL_LIST)
+
+SELECT	@p2=HRM.PERS_LIST
+FROM	OPENROWSET(BULK 'c:\Test\LCT34_19021.xml',SINGLE_BLOB) HRM (PERS_LIST)
+
+
+EXEC sp_xml_preparedocument @idoc OUTPUT, @p1
+
+SELECT *
+INTO #t1
+FROM OPENXML (@idoc, 'ZL_LIST/SCHET/ZAP/PACIENT',2)
+	WITH(
+			ID_PAC UNIQUEIDENTIFIER 
+		)
+
+EXEC sp_xml_removedocument @idoc
+
+
+EXEC sp_xml_preparedocument @idPac OUTPUT, @p2
+
+SELECT *
+INTO #t2
+FROM OPENXML (@idPac, 'PERS_LIST/PERS',2)
+	WITH(
+			ID_PAC UNIQUEIDENTIFIER 
+		)
+
+EXEC sp_xml_removedocument @idPac
+
+SELECT * FROM #t1 t WHERE NOT EXISTS(SELECT 1 FROM #t2 WHERE ID_PAC=t.ID_PAC)
+
+SELECT * FROM #t2 t WHERE NOT EXISTS(SELECT 1 FROM #t1 WHERE ID_PAC=t.ID_PAC)
+GO
+DROP TABLE #t1
+DROP TABLE #t2

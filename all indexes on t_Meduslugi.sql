@@ -1,0 +1,236 @@
+USE [AccountOMS]
+GO
+
+/****** Object:  Index [IX_Meduslugi_refCase_Count]    Script Date: 12/27/2013 11:07:01 ******/
+CREATE NONCLUSTERED INDEX [IX_Meduslugi_refCase_Count] ON [dbo].[t_Meduslugi] 
+(
+	[rf_idCase] ASC
+)
+INCLUDE ( [IsChildTariff],
+[Quantity]) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+/****** Object:  Index [IX_Meduslugi_refCase_GUIDMU]    Script Date: 12/27/2013 11:07:09 ******/
+CREATE NONCLUSTERED INDEX [IX_Meduslugi_refCase_GUIDMU] ON [dbo].[t_Meduslugi] 
+(
+	[rf_idCase] ASC,
+	[GUID_MU] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+SET ARITHABORT ON
+GO
+
+SET CONCAT_NULL_YIELDS_NULL ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+SET ANSI_WARNINGS ON
+GO
+
+SET NUMERIC_ROUNDABORT OFF
+GO
+
+/****** Object:  Index [IX_MU]    Script Date: 12/27/2013 11:07:22 ******/
+CREATE NONCLUSTERED INDEX [IX_MU] ON [dbo].[t_Meduslugi] 
+(
+	[MU] ASC
+)
+INCLUDE ( [rf_idCase]) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+SET ARITHABORT ON
+GO
+
+SET CONCAT_NULL_YIELDS_NULL ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+SET ANSI_WARNINGS ON
+GO
+
+SET NUMERIC_ROUNDABORT OFF
+GO
+
+/****** Object:  Index [IX_MU_Integer]    Script Date: 12/27/2013 11:07:42 ******/
+CREATE NONCLUSTERED INDEX [IX_MU_Integer] ON [dbo].[t_Meduslugi] 
+(
+	[MUInt] ASC
+)
+INCLUDE ( [rf_idCase],
+[IsChildTariff],
+[Quantity],
+[MU]) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+SET ARITHABORT ON
+GO
+
+SET CONCAT_NULL_YIELDS_NULL ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+SET ANSI_WARNINGS ON
+GO
+
+SET NUMERIC_ROUNDABORT OFF
+GO
+
+/****** Object:  Index [IX_MU_MUGroupCode_Report_848]    Script Date: 12/27/2013 11:07:54 ******/
+CREATE NONCLUSTERED INDEX [IX_MU_MUGroupCode_Report_848] ON [dbo].[t_Meduslugi] 
+(
+	[MUGroupCode] ASC
+)
+INCLUDE ( [rf_idCase],
+[IsChildTariff],
+[Quantity],
+[MU]) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+/****** Object:  Index [IX_MUCode_Case]    Script Date: 12/27/2013 11:08:05 ******/
+CREATE NONCLUSTERED INDEX [IX_MUCode_Case] ON [dbo].[t_Meduslugi] 
+(
+	[MUGroupCode] ASC,
+	[MUUnGroupCode] ASC
+)
+INCLUDE ( [rf_idCase]) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+/****** Object:  Index [IX_MUCode_PlanOrders]    Script Date: 12/27/2013 11:08:13 ******/
+CREATE NONCLUSTERED INDEX [IX_MUCode_PlanOrders] ON [dbo].[t_Meduslugi] 
+(
+	[MUCode] ASC
+)
+INCLUDE ( [rf_idCase],
+[IsChildTariff],
+[MUGroupCode],
+[MUUnGroupCode],
+[Quantity]) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+SET ARITHABORT ON
+GO
+
+SET CONCAT_NULL_YIELDS_NULL ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+SET ANSI_WARNINGS ON
+GO
+
+SET NUMERIC_ROUNDABORT OFF
+GO
+
+/****** Object:  Index [IX_MUDate_MUCode]    Script Date: 12/27/2013 11:08:23 ******/
+CREATE NONCLUSTERED INDEX [IX_MUDate_MUCode] ON [dbo].[t_Meduslugi] 
+(
+	[DateHelpBegin] ASC
+)
+INCLUDE ( [rf_idCase],
+[DateHelpEnd],
+[MUGroupCode],
+[MUUnGroupCode],
+[MUCode],
+[Quantity],
+[Price],
+[MU]) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+/****** Object:  Index [IX_MUGroupCode_IDCase]    Script Date: 12/27/2013 11:08:30 ******/
+CREATE NONCLUSTERED INDEX [IX_MUGroupCode_IDCase] ON [dbo].[t_Meduslugi] 
+(
+	[MUGroupCode] ASC
+)
+INCLUDE ( [rf_idCase]) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+/****** Object:  Index [IX_MUSurgery]    Script Date: 12/27/2013 11:08:39 ******/
+CREATE NONCLUSTERED INDEX [IX_MUSurgery] ON [dbo].[t_Meduslugi] 
+(
+	[MUSurgery] ASC
+)
+INCLUDE ( [rf_idCase],
+[Quantity]) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [AccountOMSMeduslugi]
+GO
+USE [AccountOMS]
+GO
+
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Meduslugi_Cases]') AND parent_object_id = OBJECT_ID(N'[dbo].[t_Meduslugi]'))
+ALTER TABLE [dbo].[t_Meduslugi] DROP CONSTRAINT [FK_Meduslugi_Cases]
+GO
+
+USE [AccountOMS]
+GO
+
+ALTER TABLE [dbo].[t_Meduslugi]  WITH CHECK ADD  CONSTRAINT [FK_Meduslugi_Cases] FOREIGN KEY([rf_idCase])
+REFERENCES [dbo].[t_Case] ([id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[t_Meduslugi] CHECK CONSTRAINT [FK_Meduslugi_Cases]
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

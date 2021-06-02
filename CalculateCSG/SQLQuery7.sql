@@ -1,0 +1,91 @@
+USE AccountOMS
+GO
+--UPDATE dbo.tmp_CSG_20141226 SET SUR=NULL WHERE LEN(SUR)=0
+
+/*
+---терапевтические КСГ	Step 1
+update t SET t.Step=1
+FROM dbo.tmp_CSG_20141226  t
+WHERE DS2 IS NULL AND sur IS NULL AND age IS NULL AND sex IS NULL AND los IS NULL
+		AND NOT EXISTS(SELECT DS1 FROM dbo.tmp_CSG_20141226 WHERE DS1=t.DS1 GROUP BY DS1 HAVING COUNT(*)>1)
+
+---Хирургические КСГ Step 2
+update t SET t.Step=2
+FROM dbo.tmp_CSG_20141226 t
+WHERE DS2 IS NULL AND DS1 IS NULL AND age IS NULL AND sex IS NULL AND los IS NULL
+		AND NOT EXISTS(SELECT SUR FROM dbo.tmp_CSG_20141226 WHERE sur=t.SUR GROUP BY SUR HAVING COUNT(*)>1)		
+
+---Step 3 DS1+Sur
+update t SET t.Step=3
+FROM dbo.tmp_CSG_20141226 t
+WHERE DS2 IS NULL AND sur IS NOT NULL AND age IS NULL AND sex IS NULL AND los IS NULL AND Step IS NULL
+		AND NOT EXISTS(SELECT DS1,sur FROM dbo.tmp_CSG_20141226 WHERE DS1=t.DS1 AND Sur=t.Sur GROUP BY DS1,sur HAVING COUNT(*)>1)
+
+---Step 4 DS1+Sur+Age
+update t SET t.Step=4
+FROM dbo.tmp_CSG_20141226  t
+WHERE DS2 IS NULL AND sur IS NOT NULL AND age IS NOT NULL AND sex IS NULL AND los IS NULL AND Step IS NULL
+		AND NOT EXISTS(SELECT DS1,sur,Age FROM dbo.tmp_CSG_20141226 WHERE DS1=t.DS1 AND Sur=t.Sur and Age=T.Age GROUP BY DS1,sur,Age HAVING COUNT(*)>1)
+
+
+--Step 7 DS1+Age
+update t SET t.Step=7
+FROM dbo.tmp_CSG_20141226  t
+WHERE DS1 IS NOT NULL and DS2 IS NULL AND sur IS NULL AND age IS NOT NULL AND sex IS NULL AND los IS NULL AND Step IS NULL
+		AND NOT EXISTS(SELECT DS1,Age
+					   FROM dbo.tmp_CSG_20141226 
+					   WHERE DS1=t.DS1 AND Age=T.Age 
+					   GROUP BY DS1,Age
+					   HAVING COUNT(*)>1
+					   )
+
+--Step 8 DS1+Sex
+update t SET t.Step=8
+FROM dbo.tmp_CSG_20141226  t
+WHERE DS1 IS NOT NULL and DS2 IS NULL AND sur IS NULL AND age IS NULL AND sex IS NOT NULL AND los IS NULL AND Step IS NULL
+		AND NOT EXISTS(SELECT DS1,sex
+					   FROM dbo.tmp_CSG_20141226 
+					   WHERE DS1=t.DS1 AND Sex=T.sex
+					   GROUP BY DS1,Sex
+					   HAVING COUNT(*)>1
+					   )
+
+--Step 9 DS1+Sus+los
+update t SET t.Step=9
+FROM dbo.tmp_CSG_20141226  t
+WHERE DS1 IS NOT NULL and DS2 IS NULL AND sur IS NOT NULL AND age IS NULL AND sex IS NULL AND los IS NOT NULL AND Step IS NULL
+		AND NOT EXISTS(SELECT DS1,Sur,los
+					   FROM dbo.tmp_CSG_20141226 
+					   WHERE DS1=t.DS1 AND los=T.los AND Sur=t.sur
+					   GROUP BY DS1,Sur,los
+					   HAVING COUNT(*)>1
+					   )
+
+--step 10 Ds1+Sur
+update t SET t.Step=10
+FROM dbo.tmp_CSG_20141226  t
+WHERE DS1 IS NOT NULL and DS2 IS NULL AND sur IS NOT NULL and Step IS NULL
+		
+--step 11 Ds1 non unique
+update t SET t.Step=11
+FROM dbo.tmp_CSG_20141226  t
+WHERE DS1 IS NOT NULL and DS2 IS NULL AND sur IS NULL and Step IS NULL AND age IS NULL AND sex IS NULL AND los IS NULL
+
+--step 12 SUr+Sex
+update t SET t.Step=12
+FROM dbo.tmp_CSG_20141226  t
+WHERE sur IS not NULL AND sex IS NOT NULL and Step IS NULL 
+
+--step 13 SUr+los
+update t SET t.Step=13
+FROM dbo.tmp_CSG_20141226  t
+WHERE sur IS not NULL AND los IS NOT NULL and Step IS NULL 
+
+--step 13 DS2+SUr+Age
+update t SET t.Step=14
+FROM dbo.tmp_CSG_20141226  t
+WHERE DS2 IS NOT NULL AND sur IS not NULL AND Age IS NOT NULL and Step IS NULL 
+*/
+
+SELECT * FROM dbo.tmp_CSG_20141226 WHERE Step IS NULL 
+

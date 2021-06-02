@@ -1,0 +1,11 @@
+USE AccountOMS
+GO
+SELECT id
+INTO #t
+FROM dbo.vw_getIdFileNumber WHERE CodeM='103001' AND ReportYear=2018 AND Account IN('34002-220-0z','34002-220-0k','34002-220-0s','34002-219-0h','34002-213-2k')
+
+BEGIN TRANSACTION
+DELETE FROM dbo.t_FileExit WHERE EXISTS(SELECT 1 FROM #t WHERE rf_idFile=id)
+commit
+GO
+DROP TABLE #t

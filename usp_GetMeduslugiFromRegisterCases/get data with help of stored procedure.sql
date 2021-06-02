@@ -1,0 +1,91 @@
+USE AccountOMS
+go
+SET NOCOUNT ON
+
+DECLARE @account varchar(15)='34001-13050-1A',
+		@rf_idF003 char(6)='105301',
+		@month TINYINT=2,
+		@year SMALLINT=2013
+		
+CREATE TABLE #meduslugi 
+(
+	GUID_Case uniqueidentifier NOT NULL,
+	id int NOT NULL,
+	GUID_MU uniqueidentifier NOT NULL,
+	rf_idMO char(6) NOT NULL,
+	rf_idV002 smallint NOT NULL,
+	IsChildTariff bit NOT NULL,
+	DateHelpBegin date NOT NULL,
+	DateHelpEnd date NOT NULL,
+	DiagnosisCode char(10) NOT NULL,
+	MUCode varchar(16) NOT NULL,
+	Quantity decimal(6, 2) NOT NULL,
+	Price decimal(15, 2) NOT NULL,
+	TotalPrice decimal(15, 2) NOT NULL,
+	rf_idV004 int NOT NULL
+)
+		declare @number int,
+				@property tinyint,
+				@smo char(5)
+				
+		select @number=dbo.fn_NumberRegister(@account),@smo=dbo.fn_PrefixNumberRegister(@account),@property=dbo.fn_PropertyNumberRegister(@account)
+		
+		SELECT @number,@smo,@property
+		
+		CREATE TABLE #case(id BIGINT, GUID_Case UNIQUEIDENTIFIER,IsCompletedCase TINYINT)
+		INSERT #case( id, GUID_Case, IsCompletedCase )
+		SELECT c.id,c.GUID_Case,c.IsCompletedCase
+		from RegisterCases.dbo.t_FileBack f inner join RegisterCases.dbo.t_RegisterCaseBack reg on
+						f.id=reg.rf_idFilesBack
+						and f.CodeM=@rf_idF003 
+											inner join RegisterCases.dbo.t_RecordCaseBack rec on
+						reg.id=rec.rf_idRegisterCaseBack and
+						reg.ReportMonth=@month and
+						reg.ReportYear=@year and
+						reg.NumberRegister=@number and
+						reg.PropertyNumberRegister=@property
+									inner join RegisterCases.dbo.t_PatientBack p on
+						rec.id=p.rf_idRecordCaseBack 
+						and	p.rf_idSMO=@smo
+									inner join RegisterCases.dbo.t_CaseBack cb on
+						rec.id=cb.rf_idRecordCaseBack and
+						cb.TypePay=1
+									inner join RegisterCases.dbo.t_Case c on
+						rec.rf_idCase=c.id
+										
+		
+		insert #meduslugi
+		select c.GUID_Case,m.id,m.GUID_MU,m.rf_idMO,m.rf_idV002,m.IsChildTariff,m.DateHelpBegin,m.DateHelpEnd,m.DiagnosisCode,
+		m.MUCode,m.Quantity,m.Price,m.TotalPrice,m.rf_idV004
+		from #case c inner join RegisterCases.dbo.t_Meduslugi m on
+						c.id=m.rf_idCase				
+						AND c.IsCompletedCase=0
+		--							left join RegisterCases.dbo.t_Mes mes on
+		--				c.id=mes.rf_idCase
+		--where mes.rf_idCase is NULL
+		--добавил медуслуги в связи с тем что ввели хирургический койко-день
+		insert #meduslugi
+		select c.GUID_Case,m.id,m.GUID_MU,m.rf_idMO,m.rf_idV002,m.IsChildTariff,m.DateHelpBegin,m.DateHelpEnd,m.DiagnosisCode,
+		m.MUCode,m.Quantity,m.Price,m.TotalPrice,m.rf_idV004
+		from #case c inner join RegisterCases.dbo.t_Meduslugi m on
+						c.id=m.rf_idCase
+									inner join RegisterCases.dbo.t_Mes mes on
+						c.id=mes.rf_idCase
+									inner join oms_NSI.dbo.V001 v on
+						m.MUCode=v.IDRB
+						
+		insert #meduslugi ----добавление врачебных приемов
+		select c.GUID_Case,m.id,m.GUID_MU,m.rf_idMO,m.rf_idV002,m.IsChildTariff,m.DateHelpBegin,m.DateHelpEnd,m.DiagnosisCode,
+				m.MUCode,m.Quantity,m.Price,m.TotalPrice,m.rf_idV004
+		from #case c inner join RegisterCases.dbo.t_Meduslugi m on
+								c.id=m.rf_idCase					
+											inner join RegisterCases.dbo.t_Mes mes on
+								c.id=mes.rf_idCase
+											inner join vw_sprMU mu on
+								mes.MES=mu.MU							
+		where mu.MUGroupCode=2 and mu.MUUnGroupCode=78
+		
+SELECT COUNT(*) FROM #meduslugi
+GO
+DROP TABLE #meduslugi
+DROP TABLE #case

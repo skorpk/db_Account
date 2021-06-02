@@ -1,0 +1,18 @@
+SET NOCOUNT ON
+DECLARE @id BIGINT=42526785
+
+--DROP TABLE t1
+
+CREATE TABLE dbo.t1(rf_idCase BIGINT)
+INSERT t1 SELECT TOP 1000000 id FROM dbo.t_Case		
+		
+
+SET STATISTICS TIME ON
+PRINT 'dbo.IsCompletedCase'
+SELECT dbo.IsCompletedCase(rf_idCase) FROM t1								
+SET STATISTICS TIME OFF	
+
+SET STATISTICS TIME ON
+PRINT 'dbo.IsCompletedCase2'
+SELECT dbo.IsCompletedCase2(rf_idCase) FROM dbo.t1
+SET STATISTICS TIME OFF	 

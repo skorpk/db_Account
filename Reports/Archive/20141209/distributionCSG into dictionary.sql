@@ -1,0 +1,67 @@
+USE AccountOMS
+GO
+
+--UPDATE dbo.tmp_CSG
+--SET Sur=null WHERE LEN(Sur)=0
+
+--UPDATE dbo.tmp_CSG SET Step=null
+
+
+	--SELECT Sur
+	--FROM tmp_CSG c WHERE (Ds1 IS NULL) AND (Step IS NULL) AND (SUr IS NOT NULL)
+	--GROUP BY Sur
+	--HAVING COUNT(*)>1
+
+WITH DS_Uniq
+AS
+(
+	SELECT Sur,RU_DRG
+	FROM tmp_CSG c WHERE (Ds1 IS NULL) AND (Step IS NULL) AND (SUr IS NOT NULL)
+	GROUP BY Sur,RU_DRG
+	HAVING COUNT(*)>1
+),
+DS_UnUniq
+AS
+(	
+	SELECT Sur,RU_DRG
+	FROM tmp_CSG c WHERE (Ds1 IS NULL) AND (Step IS NULL) AND (SUr IS NOT NULL) 
+	GROUP BY Sur,RU_DRG
+	HAVING COUNT(*)=1
+)
+SELECT d.*
+FROM DS_UnUniq d INNER JOIN dbo.tmp_CSG c ON
+		d.Sur=c.Sur
+		AND d.RU_DRG=c.RU_DRG
+WHERE NOT EXISTS(SELECT * FROM DS_Uniq d1 WHERE d1.Sur=d.Sur) AND c.DS1 IS null
+
+
+
+SELECT * FROM dbo.tmp_CSG WHERE Step IS null ORDER BY Age DESC,Sex DESC,LOS desc
+
+SELECT * FROM dbo.tmp_CSG WHERE Sur='A16.09.011.003'
+
+SELECT * FROM dbo.tmp_CSG WHERE Step=5
+/*
+WITH DS_Uniq
+AS
+(
+	SELECT Sur,RU_DRG
+	FROM tmp_CSG c WHERE (Ds1 IS NULL) AND (Step IS NULL) AND (SUr IS NOT NULL)
+	GROUP BY Sur,RU_DRG
+	HAVING COUNT(*)>1
+),
+DS_UnUniq
+AS
+(	
+	SELECT Sur,RU_DRG
+	FROM tmp_CSG c WHERE (Ds1 IS NULL) AND (Step IS NULL) AND (SUr IS NOT NULL) 
+	GROUP BY Sur,RU_DRG
+	HAVING COUNT(*)=1
+)
+UPDATE c SET Step=5
+FROM DS_UnUniq d INNER JOIN dbo.tmp_CSG c ON
+		d.Sur=c.Sur
+		AND d.RU_DRG=c.RU_DRG
+WHERE NOT EXISTS(SELECT * FROM DS_Uniq d1 WHERE d1.Sur=d.Sur) AND c.DS1 IS null
+
+*/
